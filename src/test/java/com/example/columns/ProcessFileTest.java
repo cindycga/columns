@@ -1,6 +1,7 @@
 package com.example.columns;
 
 import java.io.IOException;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,5 +15,14 @@ class ProcessFileTest {
   void testFileOver1000Lines() {
     Assertions.assertThrows(IOException.class, () -> processFile.readFile(over1000));
   }
+
+  @Test
+  void testValidFile() throws IOException {
+    // Read the text file and return as list
+    List<String> lines = ProcessFile.readFile(validFile);
+    Assertions.assertEquals(25, lines.size());
+  }
+
+
 
 }

@@ -19,12 +19,22 @@ public class DisplayListAsColumns {
 
     // Iterate through the lines and print each row
     // A row will be formed using the column variable to select the index of the item in the list
+
+    // TODO should rename variable column to linesIndex
+    // TODO rename i in for loop to currentColumn
+    // TODO rename index to row
+
+
+    // Outside loop forEach iterates through each row
+    // Inside loop prints each column in the row by getting the correct item from the list of strings
+    //
+
     IntStream.range(0, rows)
-        .forEach(index -> {
-          for (int i = 0; i < columns; i++) {
-            int column = index + ((rows) * i);
-            if (column < lineCount) {
-              System.out.printf("%-30s", lines.get(column));
+        .forEach(row -> {
+          for (int currentColumn = 0; currentColumn < columns; currentColumn++) {
+            int linesIndex = row + ((rows) * currentColumn);
+            if (linesIndex < lineCount) {
+              System.out.printf("%-30s", lines.get(linesIndex));
             }
           }
           System.out.println();
